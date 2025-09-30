@@ -1,5 +1,3 @@
-// components/CategorySection.tsx
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -9,7 +7,7 @@ interface CategoryItem {
   description: string;
   imageSrc: string;
   alt: string;
-  slug: string; // added to use in the URL
+  slug: string;
 }
 
 const categories: CategoryItem[] = [
