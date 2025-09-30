@@ -29,43 +29,41 @@ const categories: CategoryItem[] = [
 
 const CategorySection: React.FC = () => {
   return (
-    <div className="px-40 flex flex-1 justify-center">
-      <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-        <h2 className="text-[#0d1c15] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4">
+    <section className="w-full px-4 sm:px-8 lg:px-16 py-8">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6">
+        <h2 className="text-[#0d1c15] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">
           Shop by Category
         </h2>
-        <div className="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex items-stretch p-4 gap-3">
-            {categories.map((category, index) => (
-              <Link
-                key={category.slug}
-                href={`/shop?category=${category.slug}`}
-                className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60"
-              >
-                <div className="w-full aspect-[3/4] rounded-xl overflow-hidden relative">
-                  <Image
-                    src={category.imageSrc}
-                    alt={category.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    priority={index === 0}
-                  />
-                </div>
-                <div>
-                  <p className="text-[#0d1c15] text-base font-medium leading-normal">
-                    {category.title}
-                  </p>
-                  <p className="text-[#4b9b78] text-sm font-normal leading-normal">
-                    {category.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+
+        {/* Mobile: stacked, Tablet+: grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category, index) => (
+            <Link
+              key={category.slug}
+              href={`/shop?category=${category.slug}`}
+              className="flex flex-col gap-3 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200"
+            >
+              <div className="w-full aspect-[3/4] relative rounded-xl overflow-hidden">
+                <Image
+                  src={category.imageSrc}
+                  alt={category.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index === 0}
+                />
+              </div>
+              <div className="px-1">
+                <p className="text-[#0d1c15] text-base font-semibold">
+                  {category.title}
+                </p>
+                <p className="text-[#4b9b78] text-sm">{category.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

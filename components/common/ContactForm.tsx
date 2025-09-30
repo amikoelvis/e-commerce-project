@@ -21,7 +21,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form
+      onSubmit={formik.handleSubmit}
+      className="w-full max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6"
+    >
       {(['name', 'email', 'subject'] as const).map((name) => {
         const fieldProps = {
           name,
@@ -40,53 +43,51 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
               : 'Subject',
         };
         return (
-          <div key={name} className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-            <label className="flex flex-col min-w-40 flex-1">
-              <p className="text-[#0d1b15] text-base font-medium leading-normal pb-2">
-                {fieldProps.label}
-              </p>
-              <input
-                type={fieldProps.type}
-                name={fieldProps.name}
-                placeholder={fieldProps.placeholder}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values[fieldProps.name]}
-                className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0d1b15] focus:outline-0 focus:ring-0 border border-[#cfe7dd] bg-[#f8fcfa] focus:border-[#cfe7dd] h-14 placeholder:text-[#4c9a77] p-[15px] text-base font-normal leading-normal"
-              />
-              {formik.touched[fieldProps.name] && formik.errors[fieldProps.name] && (
-                <span className="text-red-500 text-sm pt-1">{formik.errors[fieldProps.name]}</span>
-              )}
+          <div key={name} className="flex flex-col gap-2">
+            <label className="text-[#0d1b15] text-base font-medium leading-normal">
+              {fieldProps.label}
             </label>
+            <input
+              type={fieldProps.type}
+              name={fieldProps.name}
+              placeholder={fieldProps.placeholder}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values[fieldProps.name]}
+              className="w-full rounded-xl border border-[#cfe7dd] bg-[#f8fcfa] h-12 px-4 text-[#0d1b15] placeholder:text-[#4c9a77] focus:border-[#4b9b78] focus:ring-1 focus:ring-[#4b9b78] text-base"
+            />
+            {formik.touched[fieldProps.name] && formik.errors[fieldProps.name] && (
+              <span className="text-red-500 text-sm">{formik.errors[fieldProps.name]}</span>
+            )}
           </div>
         );
       })}
 
       {/* Message textarea */}
-      <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-        <label className="flex flex-col min-w-40 flex-1">
-          <p className="text-[#0d1b15] text-base font-medium leading-normal pb-2">Message</p>
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.message}
-            className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0d1b15] focus:outline-0 focus:ring-0 border border-[#cfe7dd] bg-[#f8fcfa] focus:border-[#cfe7dd] min-h-36 placeholder:text-[#4c9a77] p-[15px] text-base font-normal leading-normal"
-          />
-          {formik.touched.message && formik.errors.message && (
-            <span className="text-red-500 text-sm pt-1">{formik.errors.message}</span>
-          )}
+      <div className="flex flex-col gap-2">
+        <label className="text-[#0d1b15] text-base font-medium leading-normal">
+          Message
         </label>
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.message}
+          className="w-full rounded-xl border border-[#cfe7dd] bg-[#f8fcfa] min-h-[150px] px-4 py-3 text-[#0d1b15] placeholder:text-[#4c9a77] focus:border-[#4b9b78] focus:ring-1 focus:ring-[#4b9b78] text-base resize-y"
+        />
+        {formik.touched.message && formik.errors.message && (
+          <span className="text-red-500 text-sm">{formik.errors.message}</span>
+        )}
       </div>
 
       {/* Submit button */}
-      <div className="flex px-4 py-3 justify-start">
+      <div className="flex justify-start">
         <button
           type="submit"
-          className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#13eb8a] text-[#0d1b15] text-sm font-bold leading-normal tracking-[0.015em]"
+          className="rounded-full bg-[#13eb8a] text-[#0d1b15] text-sm font-bold px-6 py-2 hover:bg-[#10d97e] transition-colors"
         >
-          <span className="truncate">Send Message</span>
+          Send Message
         </button>
       </div>
     </form>
