@@ -2,7 +2,7 @@ import React from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { FaInstagram, FaFacebookF, FaXTwitter } from 'react-icons/fa6';
 import Link from 'next/link';
-import ContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/common/ContactForm';
 
 const ContactPage: React.FC = () => {
   const handleSubmit = (values: { name: string; email: string; subject: string; message: string }) => {

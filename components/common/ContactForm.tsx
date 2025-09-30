@@ -1,17 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
-interface ContactFormValues {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-interface ContactFormProps {
-  onSubmit: (values: ContactFormValues) => void;
-}
+import { ContactFormProps, ContactFormValues } from '@/interfaces';
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const formik = useFormik<ContactFormValues>({

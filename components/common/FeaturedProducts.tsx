@@ -1,12 +1,6 @@
+import { FeaturedProduct } from '@/interfaces';
 import Image from 'next/image';
 import React from 'react';
-
-interface FeaturedProduct {
-  title: string;
-  description: string;
-  imageSrc: string;
-  alt: string;
-}
 
 const featuredProducts: FeaturedProduct[] = [
   {

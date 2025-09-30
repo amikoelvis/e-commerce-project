@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
-import FeaturedProducts from '@/components/FeaturedProducts';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import HeroSection from '@/components/HeroSection';
-import CustomerReviews from '@/components/CustomerReviewSection';
-import SaleSection from '@/components/SaleSection';
-import CategorySection from '@/components/CategorySection';
+import FeaturedProducts from '@/components/common/FeaturedProducts';
+import NewsletterSignup from '@/components/common/NewsletterSignup';
+import HeroSection from '@/components/common/HeroSection';
+import CustomerReviews from '@/components/common/CustomerReviewSection';
+import SaleSection from '@/components/common/SaleSection';
+import CategorySection from '@/components/common/CategorySection';
 
 const HomePage: NextPage = () => {
   return (

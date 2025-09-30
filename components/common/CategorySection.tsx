@@ -1,14 +1,7 @@
+import { CategoryItem } from '@/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-
-interface CategoryItem {
-  title: string;
-  description: string;
-  imageSrc: string;
-  alt: string;
-  slug: string;
-}
 
 const categories: CategoryItem[] = [
   {
